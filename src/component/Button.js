@@ -22,7 +22,7 @@ export default class Button extends Component{
             <button onClick={this.changeMe.bind(this,this.state.flag)}>切换</button>
 
 
-            <div style={{marginTop:-30}}>
+            <div style={{}}>
                 <h1>{this.state.msg}</h1>
             </div>
 
