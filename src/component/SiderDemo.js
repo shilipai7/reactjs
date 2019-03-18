@@ -1,5 +1,11 @@
 import { Layout, Menu, Icon } from 'antd';
 import React from 'react'
+import {Image} from 'react-dom'
+import {Link,Route} from 'react-router-dom'
+import ArrayTest from "./ArrayTest";
+import '../css/siderDemo.css'
+
+
 
 const { Header, Sider, Content } = Layout;
 
@@ -16,30 +22,45 @@ const { Header, Sider, Content } = Layout;
 
     render() {
         return (
-            <Layout>
+            <Layout style={{minHeight:'100vh'}}>
                 <Sider
                     trigger={null}
                     collapsible
                     collapsed={this.state.collapsed}
+
                 >
-                    <div className="logo" />
-                    <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+
+                    <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}  style={{height:'100%'}}>
                         <Menu.Item key="1">
+                            <Link to="/siderDemo/arrayTest"></Link>
                             <Icon type="user" />
-                            <span>nav 1</span>
+                            <span>arrayTest</span>
                         </Menu.Item>
                         <Menu.Item key="2">
                             <Icon type="video-camera" />
-                            <span>nav 2</span>
+                            <span>colTest</span>
+                            <Link to="/siderDemo/colTest"></Link>
                         </Menu.Item>
                         <Menu.Item key="3">
                             <Icon type="upload" />
-                            <span>nav 3</span>
+                            <span>button</span>
+                            <Link to="/siderDemo/button"/>
+                        </Menu.Item>
+
+                        <Menu.Item key="4">
+                            <Icon type="upload" />
+                            <span>spintest</span>
+                            <Link to="/siderDemo/spintest"></Link>
+                        </Menu.Item>
+                        <Menu.Item key="5">
+                            <Icon type="upload" />
+                            <span>carousel</span>
+                            <Link to="/siderDemo/carousel"></Link>
                         </Menu.Item>
                     </Menu>
                 </Sider>
                 <Layout>
-                    <Header style={{ background: '#fff', padding: 0 }}>
+                    <Header style={{ background: '#dbc4ff', padding: 0 }}>
                         <Icon
                             className="trigger"
                             type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
@@ -47,10 +68,10 @@ const { Header, Sider, Content } = Layout;
                         />
                     </Header>
                     <Content style={{
-                        margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280,
+                        margin: '24px 16px', padding: 24, background: '#c7edcc',
                     }}
                     >
-                        Content
+                        {this.props.children}
                     </Content>
                 </Layout>
             </Layout>
